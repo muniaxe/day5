@@ -16,6 +16,14 @@ public class BankCustomerFacade {
 
     private static BankCustomerFacade instance;
     private static EntityManagerFactory emf;
+    
+    private Long id;
+    private String firstName;
+    private String lastName;
+    private String accountNumber;
+    private double balance;
+    private int customerRanking;
+    private String internalInfo;
 
     //Private Constructor to ensure Singleton
     private BankCustomerFacade() {
@@ -37,7 +45,7 @@ public class BankCustomerFacade {
     private EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
-
+    
     public BankCustomerDTO create(BankCustomer bc) {
         BankCustomer tmpBankCustomer = new BankCustomer(bc.getFirstName(), bc.getLastName());
         EntityManager em = emf.createEntityManager();

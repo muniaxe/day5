@@ -14,26 +14,23 @@ import java.util.List;
  * @author tha
  */
 public class BankCustomerDTO {
+
     private long id;
     private String firstName;
     private String lastName;
 
-    public BankCustomerDTO(String dummyStr1, String dummyStr2) {
-        this.firstName = dummyStr1;
-        this.lastName = dummyStr2;
+    public BankCustomerDTO(BankCustomer bc) {
+        this.firstName = bc.getFirstName();
+        this.lastName = bc.getLastName();
     }
-    
-    public static List<BankCustomerDTO> getDtos(List<BankCustomer> rms){
+
+    public static List<BankCustomerDTO> getDtos(List<BankCustomer> rms) {
         List<BankCustomerDTO> rmdtos = new ArrayList();
-        rms.forEach(rm->rmdtos.add(new BankCustomerDTO(rm)));
+        rms.forEach(rm -> rmdtos.add(new BankCustomerDTO(rm)));
         return rmdtos;
     }
 
-
-    public BankCustomerDTO(BankCustomer bc) {
-        this.id = bc.getId();
-        this.firstName = bc.getFirstName();
-        this.lastName = bc.getLastName();
+    public BankCustomerDTO() {
     }
 
     public String getDummyStr1() {
@@ -56,10 +53,5 @@ public class BankCustomerDTO {
     public String toString() {
         return "BankCustomerDTO{" + "id=" + id + ", str1=" + firstName + ", str2=" + lastName + '}';
     }
-    
-    
-    
-    
-    
-    
+
 }
